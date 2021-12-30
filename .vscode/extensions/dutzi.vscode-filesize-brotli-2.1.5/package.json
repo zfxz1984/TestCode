@@ -1,0 +1,93 @@
+{
+	"name": "vscode-filesize-brotli",
+	"displayName": "filesize",
+	"description": "Show the current file size in the status bar",
+	"version": "2.1.5",
+	"icon": "icon.png",
+	"publisher": "dutzi",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dutzi/vscode-filesize"
+	},
+	"keywords": [
+		"file",
+		"size",
+		"filesize",
+		"status bar",
+		"info"
+	],
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.toggleFilesizeInfo",
+				"title": "Toggle filesize detailed information"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.toggleFilesizeInfo",
+				"key": "ctrl+shift+'",
+				"mac": "cmd+shift+'",
+				"when": "editorTextFocus"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "filesize configuration",
+			"properties": {
+				"filesize.useDecimal": {
+					"type": "boolean",
+					"default": false,
+					"description": "Defaults to false, using IEC's representation. Set to true to get SI representation."
+				},
+				"filesize.use24HourFormat": {
+					"type": "boolean",
+					"default": true,
+					"description": "Defaults to true, using 24-hour format. Set to false to get 12-hour format."
+				},
+				"filesize.showGzip": {
+					"type": "boolean",
+					"default": true,
+					"description": "Defaults to true, whether to show gzip size in detailed view or not."
+				},
+				"filesize.showBrotli": {
+					"type": "boolean",
+					"default": true,
+					"description": "Defaults to true, whether to show Brotli size in detailed view or not."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.8.3",
+		"vscode": "^1.1.36",
+		"mocha": "^7.1.1",
+		"eslint": "^6.8.0",
+		"@types/node": "^13.11.0",
+		"@types/mocha": "^7.0.2"
+	},
+	"dependencies": {
+		"@dutzi/filesize-calculator": "^3.2.1"
+	},
+	"__metadata": {
+		"id": "c15994cc-0654-48b1-9ca7-fd9fdd828df3",
+		"publisherId": "95f7aaef-46ba-4c4f-80aa-e67a8904ea99",
+		"publisherDisplayName": "Eldad Bercovici",
+		"installedTimestamp": 1637293926481
+	}
+}
